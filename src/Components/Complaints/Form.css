@@ -1,0 +1,140 @@
+/* Background */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  padding-top: 0px;
+  /* background: #f3f4f6; */
+  min-height: 100vh;
+}
+
+/* Card */
+.form-card {
+  background: white;
+  padding: 30px;
+  padding-top: 0px;
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.form-card h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Groups */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* Required star */
+.required {
+  color: red;
+}
+
+/* Inputs */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Similar complaints box */
+.similar-box {
+  background: #fef3c7;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.similar-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Each item */
+.similar-list > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: white;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+/* Upvote button */
+.similar-list button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.similar-list button:hover {
+  background: #1d4ed8;
+}
+
+/* Error */
+.error-text {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  flex: 1;
+  background: #2563eb;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+}
+
+.cancel-btn {
+  flex: 1;
+  background: #e5e7eb;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #d1d5db;
+}

@@ -1,0 +1,96 @@
+#balance {
+    display: flex;
+    /* gap: 4rem; */
+    justify-content: space-between;
+}
+
+.in {
+    display: flex;
+    flex-direction: column;
+}
+
+#stat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3.5rem;
+}
+
+.status {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;   /* your desired size */
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Ribbon inward cut */
+.status::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 0;
+  height: 0;
+
+  /* scaled properly */
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-right: 16px solid #f3f4f6; /* match your card bg */
+}
+/* Different colors */
+.resolved {
+  background: #22c55e;
+}
+
+.resolved::after {
+  border-right: 10px solid white; /* cut color (same as background behind) */
+}
+
+.pending {
+  background: #f59e0b;
+}
+
+.pending::after {
+  border-right: 10px solid white;
+}
+
+.progress {
+  background: #3b82f6;
+}
+
+.progress::after {
+  border-right: 10px solid white;
+}
+
+#graytext{
+    color: rgb(111, 111, 111);
+}
+.mybt{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px;
+  border-radius: 20px;
+
+  background: #f1f5f9;
+  color: #334155;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+.mybt:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}

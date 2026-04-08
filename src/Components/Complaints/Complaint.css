@@ -1,0 +1,43 @@
+.search-container {
+    
+  position: relative;
+  width: 300px;
+ 
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px 40px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  stroke: gray;   /* 👈 gray icon */
+  fill: none;
+  stroke-width: 2;
+}
+
+#cardhold{
+    /* padding-top: 1.5rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#extra{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+#drop{
+  padding: 0.4rem 1rem;
+  border: 1px solid #ccc;
+}

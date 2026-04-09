@@ -1,0 +1,123 @@
+#outer{
+    width: 100%;
+}
+#nav-section{
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 2rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+#left{
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+}
+#text{
+    font-size: 2rem;
+    text-align: center;
+
+}
+#buttons{
+    display: flex;
+    gap: 1rem;
+}
+.bts{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+}
+.sign{
+    background-color: rgb(34, 34, 249);
+    color: aliceblue;
+    border: none;
+}
+.log{
+    border: none;
+    outline: none;
+    background: none;
+}
+.log:hover{
+    text-decoration: underline;
+    color: blue;
+}
+img{
+    border-radius: 1rem;
+}
+/* #hero {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/campus.png');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+} */
+#hero {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url('/campus.png');
+    background-size: 70%;              /* reduce zoom */
+    background-position: right ; /* keep girl visible */
+    background-repeat: no-repeat;
+
+    display: flex;
+    /* align-items: center; */
+}
+#content{
+    height: 100%;
+    width: 50%;
+    padding-top: 4rem;
+    padding-left: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+#heading{
+    font-size: 4rem;
+    font-weight: bold;
+}
+#para{
+    color: rgb(91, 89, 89);
+    font-size: 2rem;
+}
+
+.next{
+    padding: 1.5rem 1.5rem;
+    font-size: 1.5rem;
+}
+
+.boxcontainer{
+    margin-top: 5rem;
+    width: 100%;
+}
+.cardbox{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding-left: 1.5rem;
+}
+#maintext{
+    margin-top: 6rem;
+    text-align: center;
+}
+#styletext{
+    font-size: 2rem;
+    font-weight: 700;
+}
+#last{
+    margin-top: 4rem;
+    background-color: rgb(252, 240, 240);
+    text-align: center;
+}
+#campus{
+    padding-top: 2rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.nexting{
+    padding: 1rem 1.5rem;
+}

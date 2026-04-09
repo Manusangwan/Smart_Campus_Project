@@ -1,0 +1,25 @@
+.pink{
+    background-color: rgb(228, 199, 205);
+}
+.blue{
+    background-color: rgb(178, 178, 214);
+}
+.yellow{
+    background-color: rgb(116, 103, 201);
+}
+#outercard{
+    border-radius: 1rem;
+    max-width: 350px;
+    max-height: 400px;
+}
+#innercard{
+    padding: 1rem 1.4rem;
+}
+#some{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#extra{
+    color: rgb(71, 70, 70);
+    font-size: 1rem;
+}

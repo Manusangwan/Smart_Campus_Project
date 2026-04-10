@@ -1,25 +1,73 @@
-.pink{
-    background-color: rgb(228, 199, 205);
+/* Card Background Variants */
+.pink {
+    background: linear-gradient(135deg, #ffe4ec, #ffc1d6);
+    /* background: #ffe6ee;  */
 }
-.blue{
-    background-color: rgb(178, 178, 214);
+
+.blue {
+    background: linear-gradient(135deg, #e0ecff, #b6ccff);
+    /* background: #e6f0ff; */
 }
-.yellow{
-    background-color: rgb(116, 103, 201);
+
+.yellow {
+    background-color: linear-gradient(135deg, #fff6d6, #ffe58f);
+     /* background: #fff6d6; */
 }
-#outercard{
-    border-radius: 1rem;
-    max-width: 350px;
-    max-height: 400px;
+
+/* Outer Card */
+#outercard {
+    border-radius: 1.2rem;
+    max-width: 320px;
+    min-height: 220px;
+    overflow: hidden;
+
+    /* Shadow + glass effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    /* Smooth animation */
+    transition: all 0.3s ease;
+
+    cursor: pointer;
 }
-#innercard{
-    padding: 1rem 1.4rem;
+
+/* Hover Effect */
+#outercard:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
-#some{
-    font-size: 1.5rem;
-    font-weight: bold;
+
+/* Inner Content */
+#innercard {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 }
-#extra{
-    color: rgb(71, 70, 70);
-    font-size: 1rem;
+
+/* Image */
+#innercard img {
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    width: 55px;
+    height: 55px;
+
+    /* subtle shadow */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Title */
+#some {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1f2937; /* dark gray */
+    margin: 0;
+}
+
+/* Description */
+#extra {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
 }

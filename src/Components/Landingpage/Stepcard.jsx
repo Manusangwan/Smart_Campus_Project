@@ -4,7 +4,7 @@ export default function Stepcard({num,text,info,color}){
     return(
         <div id="outerbox">
             <div id="innerbox">
-                <div id="first">
+                <div id="fir">
                     <span className={`circle ${color}`}>{num}</span>
                     <span id="chat">{text}</span>
                 </div>

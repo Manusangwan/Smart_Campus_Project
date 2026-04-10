@@ -2,19 +2,10 @@ import React from "react";
 import './Landing.css'
 import Showcard from "./Showcard";
 import Stepcard from "./Stepcard";
+import Navbar from "./navbar";
 export default function Landing(){
     return(
         <div>
-            <nav id="nav-section">
-                <div id="left">
-                    <img src="/logo_mse_project.png" alt="" width="50px" height="56px"/>
-                    <span id="text">Smart Campus Assistant</span>
-                </div>
-                <div id="buttons">
-                    <button className="bts log">Login</button>
-                    <button className="bts sign">Sign Up</button>
-                </div>
-            </nav>
             <div id="hero">
                 <div id="content">
                     <p id="heading">Smart Campus Assistant</p>

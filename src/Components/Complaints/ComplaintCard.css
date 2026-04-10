@@ -7,13 +7,19 @@
 .in {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
-
+#com{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 #stat {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-right: 3.5rem;
+    padding-top: 2rem;
 }
 
 .status {

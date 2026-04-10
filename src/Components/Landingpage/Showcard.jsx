@@ -6,7 +6,7 @@ export default function Showcard({imglink,title,info,color}){
             <div id="innercard">
                 <img src={imglink} alt="" width="50px" height="50px" />
                 <p id="some">{title}</p>
-                <p id="extra">{info}</p>
+                <p id="ext">{info}</p>
             </div>
         </div>
     )

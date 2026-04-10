@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 // import { UserContext } from "./Context";
 import './Header.css'
+import { Link } from "react-router-dom";
 
 const Header = () => {
 //   const { user } = useContext(UserContext);
 let user =  true;
   const [open, setOpen] = useState(false);
-
+  const [working,setworking]= useState("Home");
   return (
     <header className="header">
 
@@ -27,14 +28,13 @@ let user =  true;
         ) : (
           // 🔹 LOGGED IN
           <>
-            <button>Home</button>
-            <button>Complaint</button>
-            <button>Announcement</button>
-            <button>Faculty Finder</button>
-            {/* PROFILE DROPDOWN */}
+            <Link className={working==="Home"?"currentactive": "nonactive"} to="/home" onClick={()=>setworking("Home")}>Home</Link>
+            <Link className={working==="Announcements"?"currentactive": "nonactive"} to="/announcements" onClick={()=>setworking("Announcements")}>Announcements</Link>
+            <Link className={working==="Complaints"?"currentactive": "nonactive"} to="/complaints" onClick={()=>setworking("Complaints")}>Complaints</Link>
+            <Link className={working==="Faculty"?"currentactive": "nonactive"} to="/faculty" onClick={()=>setworking("Faculty")}>Faculty Directory</Link>
+
             <div className="profile">
-              
-              {/* Clickable Profile */}
+            
               <div 
                 className="profile-info" 
                 onClick={() => setOpen(!open)}

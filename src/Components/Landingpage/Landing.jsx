@@ -2,16 +2,15 @@ import React from "react";
 import './Landing.css'
 import Showcard from "./Showcard";
 import Stepcard from "./Stepcard";
-import Navbar from "./navbar";
 export default function Landing(){
     return(
         <div>
             <div id="hero">
                 <div id="content">
-                    <p id="heading">Smart Campus Assistant</p>
+                    <p id="head">Smart Campus Assistant</p>
                     <p id="para">Manage complaints, announcements, and faculty details in one place.</p>
                     <div>
-                        <button className="bt sign next">Get Started</button>
+                        <button className="bts sign next">Get Started</button>
                     </div>
                 </div>
             </div>

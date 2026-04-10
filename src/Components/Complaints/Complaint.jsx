@@ -75,6 +75,7 @@ export default function Complaint() {
                     <button onClick={() => setactivetab("Recent")} className={activetab === "Recent" ? "active_btn" : "bt"}>Recent Complaints</button>
                     <button onClick={() => setactivetab("New")} className={activetab === "New" ? "active_btn" : "bt"}>+ New Complaint</button>
                 </div>
+                <div id="line"></div>
                 <div id="extra">
                     <div >
                         {activetab !== "New" && (

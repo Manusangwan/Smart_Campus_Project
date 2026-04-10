@@ -76,7 +76,7 @@ export default function Card({announce }) {
                         <p className="inf deadline">Date: {formatdate()}</p>
                     )}
                 </div>
-                <div id="cat"><span id="head" style={{backgroundColor: getcolor(announce.category), color:getcolour(announce.category), borderColor:getcolour(announce.category)}}>{announce.category}</span></div>
+                <div id="cat"><span id="hea" style={{backgroundColor: getcolor(announce.category), color:getcolour(announce.category), borderColor:getcolour(announce.category)}}>{announce.category}</span></div>
             </div>
         </div>
     )

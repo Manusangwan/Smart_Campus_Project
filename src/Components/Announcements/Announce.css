@@ -1,54 +1,98 @@
-#mainbox{
+/* ===== MAIN CONTAINER ===== */
+#mainbox {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 2rem;
 }
-#box{
+
+/* ===== INNER BOX ===== */
+#box {
     width: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    /* gap: 1rem; */
+    gap: 1.2rem;
 }
-h1{
-    /* font-size: 1rem; */
-    font-weight: bold;
-    font-size: 2.5rem;
+
+/* ===== HEADING ===== */
+#heading {
+    font-weight: 700;
+    font-size: 2.3rem;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
 }
-#bttext{
+
+/* ===== BUTTON CONTAINER ===== */
+#bttext {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
-.bt{
-    padding: 0.7rem 1.5rem;
+
+/* ===== NORMAL BUTTON ===== */
+.bt {
+    padding: 0.6rem 1.4rem;
     border-radius: 10px;
     background-color: white;
-    border-color: aliceblue;
     border: none;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
-  transform: translateY(-2px);
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.25s ease;
 }
-.active_btn{
-     padding: 0.7rem 1.5rem;
+
+/* Hover effect */
+.bt:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* ===== ACTIVE BUTTON ===== */
+.active_btn {
+    padding: 0.6rem 1.4rem;
     border-radius: 10px;
-    background-color: rgb(51, 42, 219);
-    color: aliceblue;
-    border-color: aliceblue;
+
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+
     border: none;
-    /* box-shadow: 0 8px 16px rgba(0,0,0,0.2);  */
-  transform: translateY(-2px);
-  background: #4f46e5;
-  color: white;
-  box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+    cursor: pointer;
+
+    box-shadow: 0 6px 14px rgba(79,70,229,0.3);
+    transform: translateY(-2px);
 }
-#cardholder{
-    padding-top: 1.5rem;
+
+/* ===== DIVIDER LINE ===== */
+#line {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, #e5e7eb, #c7d2fe);
+    border-radius: 2px;
+}
+
+/* ===== CARD HOLDER ===== */
+#cardholder {
+    padding-top: 1.2rem;
+
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
 }
-#line{
-    background-color: rgb(100, 97, 97);
-    color: black;
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    #box {
+        width: 90%;
+    }
+
+    #heading {
+        font-size: 1.8rem;
+    }
+
+    .bt,
+    .active_btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
 }

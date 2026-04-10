@@ -18,9 +18,9 @@ export default function Faculty() {
   });
 
   return (
-    <div className="page" id="mainbox">
+    <div className="page" id="mostbox">
 
-      <div className="container" id="box">
+      <div className="contained" id="inbox">
 
         <h1 className="page-title">Faculty Directory</h1>
 
@@ -28,13 +28,13 @@ export default function Faculty() {
           <input
             type="text"
             placeholder="Search faculty..."
-            className="search-input"
+            className="search-in"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
 
           <select
-            className="dropdown"
+            className="dro"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
           >

@@ -1,18 +1,27 @@
+/* ===== SEARCH BOX ===== */
 .search-container {
-    
   position: relative;
-  width: 300px;
- 
+  width: 280px;
 }
 
 .search-container input {
   width: 100%;
   padding: 10px 40px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
   outline: none;
+
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
+/* Focus effect */
+.search-container input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+}
+
+/* Search Icon */
 .icon {
   position: absolute;
   left: 12px;
@@ -20,24 +29,66 @@
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  stroke: gray;   /* 👈 gray icon */
+
+  stroke: #9ca3af;
   fill: none;
   stroke-width: 2;
 }
 
-#cardhold{
-    /* padding-top: 1.5rem; */
-    display: flex;
+/* ===== EXTRA SECTION (SEARCH + FILTER) ===== */
+#extra {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  margin-bottom: 1.5rem;
+}
+
+/* ===== DROPDOWN ===== */
+#drop {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover + focus */
+#drop:hover {
+  border-color: #6366f1;
+}
+
+#drop:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+}
+
+/* ===== CARD HOLDER ===== */
+#cardhold {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+  }
+
+  #extra {
     flex-direction: column;
-    gap: 1rem;
-}
-#extra{
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-}
-#drop{
-  padding: 0.4rem 1rem;
-  border: 1px solid #ccc;
+    align-items: stretch;
+  }
+
+  #drop {
+    width: 100%;
+  }
 }

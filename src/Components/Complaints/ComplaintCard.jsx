@@ -41,7 +41,7 @@ export default function ComplaintCard({ comp, upvotehandler }) {
         <div id="outer">
             <div id="inner" className="in">
                 <div id="balance">
-                    <div>
+                    <div id="com">
                         <h2>{comp.title}</h2>
                         <p>{comp.description}</p>
                     </div>

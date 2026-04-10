@@ -5,7 +5,7 @@
 }
 
 /* Container */
-.container {
+.contained {
   padding: 32px 40px;
 }
 
@@ -18,30 +18,10 @@
 }
 
 /* Navbar */
-.navbar {
-  background: linear-gradient(to right, #4f46e5, #a855f7); /* indigo to purple */
-  color: white;
-  padding: 16px 40px;
-}
+
 
 /* Nav Links */
-.nav-links {
-  display: flex;
-  gap: 32px;
-  font-size: 14px;
-  font-weight: 500;
-}
 
-.nav-links span {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.nav-links span.active {
-  border-bottom: 2px solid white;
-  padding-bottom: 4px;
-  opacity: 1;
-}
 
 /* Filters */
 .filters {
@@ -51,7 +31,7 @@
 }
 
 /* Search Input */
-.search-input {
+.search-in {
   padding: 12px 16px;
   width: 384px;
   border: 1px solid #d1d5db; /* gray-300 */
@@ -66,7 +46,7 @@
 }
 
 /* Dropdown */
-.dropdown {
+.dro {
   padding: 12px 16px;
   border: 1px solid #d1d5db;
   border-radius: 8px;

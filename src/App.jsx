@@ -6,18 +6,22 @@ import Faculty from './Components/Faculty/Faculty.jsx'
 import Landing from './Components/Landingpage/Landing.jsx'
 import Header from './Components/Header/Header.jsx'
 import Footer from './Components/Footer/Footer.jsx'
+import Home from './Components/Home/Home.jsx'
+import { Route,Routes } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 function App() {
-  
+  let user= true
   return (
     <>
-      {/* <Landing/> */}
-      {/* <Announce/> */}
-      {/* <Complaint/> */}
-      {/* <Faculty/> */}
-      {/* <Landing/> */}
-      <Header></Header>
-      <Landing></Landing>
-      <Footer></Footer>
+     <Header/>
+     <Routes>
+      <Route path="/" element={user? <Navigate to="/home"/>: <Landing/>}/>
+      <Route path="/home" element={user? <Home/>:<Landing/>}/>
+      <Route path="/complaints" element={<Complaint/>}/>
+      <Route path="/announcements" element={<Announce/>}/>
+      <Route path="/faculty" element={<Faculty/>}/>
+     </Routes>
+     <Footer/>
     </>
 
   )

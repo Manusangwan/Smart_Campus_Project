@@ -30,7 +30,7 @@ body {
     padding-left: 6rem;
 }
 
-#heading {
+#head {
     font-size: 3.5rem;
     font-weight: 700;
     color: #111827;
@@ -45,7 +45,7 @@ body {
 }
 
 /* BUTTONS */
-.bt, .bts {
+ .bts {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;

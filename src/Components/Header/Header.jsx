@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const Header = () => {
 //   const { user } = useContext(UserContext);
 let user =  true;
+const [working,setworking]= useState("Home");
   const [open, setOpen] = useState(false);
-  const [working,setworking]= useState("Home");
   return (
     <header className="header">
 

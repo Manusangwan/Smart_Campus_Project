@@ -18,23 +18,30 @@ export default function Faculty() {
   });
 
   return (
-    <div className="page" id="mostbox">
+    <div id="mainbox">
 
-      <div className="contained" id="inbox">
+      <div  id="box">
 
-        <h1 className="page-title">Faculty Directory</h1>
+        <h1 id="heading">Faculty Directory</h1>
+        <div id="line"></div>
 
-        <div className="filters">
-          <input
+        <div id="extra">
+          {/* <input
             type="text"
             placeholder="Search faculty..."
             className="search-in"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-          />
+          /> */}
+           <div className="search-container">
+                                <input type="text" placeholder="Search faculty...." value={search} onChange={(e) => setSearch(e.target.value)} />
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M21 21l-4.35-4.35m1.85-5.65a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                                </svg>
+          </div>
 
           <select
-            className="dro"
+            id="drop"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
           >

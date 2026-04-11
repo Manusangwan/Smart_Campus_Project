@@ -70,7 +70,7 @@ export default function Form({ complaint, upvotehandler }) {
                                         </div>
                                     </div>
                                 )
-                            })) : "None"}
+                            })) : ""}
                         </div>
                     </div>
                     {error && (

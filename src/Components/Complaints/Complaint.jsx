@@ -68,7 +68,7 @@ export default function Complaint() {
     return (
         <div id="mainbox">
             <div id="box">
-                <h1>Complaints</h1>
+                <h1 id="heading">Complaints</h1>
                 <div id="bttext">
                     <button onClick={() => setactivetab("All")} className={activetab === "All" ? "active_btn" : "bt"}>All Complaints</button>
                     <button onClick={() => setactivetab("My")} className={activetab === "My" ? "active_btn" : "bt"}>My Complaints</button>

@@ -1,123 +1,148 @@
-/* Page */
-.page {
-  min-height: 100vh;
-  /* background-color: #f3f4f6; gray-100 */
+/* ================= CONTAINER ================= */
+#box {
+  width: 92%;   /* increased for bigger cards */
 }
 
-/* Container */
-.contained {
-  padding: 32px 40px;
-}
-
-/* Title */
-.page-title {
-  /* font-size: 24px;
-  font-weight: 600;
-  color: #1f2937; gray-800 */
-  margin-bottom: 24px;
-}
-
-/* Navbar */
-
-
-/* Nav Links */
-
-
-/* Filters */
-.filters {
+/* ================= FILTER BAR ================= */
+.sca-filter-bar {
   display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 15px;
+  margin: 20px 0;
+  width: 50%;
 }
 
-/* Search Input */
-.search-in {
-  padding: 12px 16px;
-  width: 384px;
-  border: 1px solid #d1d5db; /* gray-300 */
-  border-radius: 8px;
-  background-color: white;
+/* ================= SEARCH ================= */
+.sca-search {
+  flex: 2;
+  padding: 12px 15px;
+  border-radius: 18px;   /* more rounded */
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
 }
 
-.search-input:focus {
-  outline: none;
-  border-color: #6366f1; /* indigo-400 */
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+/* ================= DROPDOWN ================= */
+.sca-dropdown {
+  flex: 1;
+  padding: 12px;
+  border-radius: 18px;   /* more rounded */
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
 }
 
-/* Dropdown */
-.dro {
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background-color: white;
-  cursor: pointer;
-}
-
-/* Grid */
-.faculty-grid {
+/* ================= GRID ================= */
+.sca-faculty-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;   /* increased spacing */
 }
 
-/* Responsive Grid */
-@media (min-width: 640px) {
-  .faculty-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ================= CARD ================= */
+.sca-faculty-card {
+  background: white;
+  border-radius: 20px;
+  padding: 26px;
+
+  min-height: 230px;   /* bigger cards */
+
+  box-shadow: 0 8px 22px rgba(0,0,0,0.07);
+  transition: all 0.25s ease;
 }
 
-@media (min-width: 1024px) {
-  .faculty-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.sca-faculty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
 }
 
-/* Card */
-.faculty-card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 16px;
+/* ================= TOP ================= */
+.sca-faculty-top {
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: 0.3s;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
 }
 
-.faculty-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Image */
-.faculty-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+/* ================= AVATAR ================= */
+.sca-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
-/* Name */
-.faculty-name {
-  font-size: 18px;
+/* ================= TEXT ================= */
+.sca-name {
+  font-size: 17px;
   font-weight: 600;
   color: #1f2937;
 }
 
-/* Department */
-.faculty-dept {
+.sca-role {
   font-size: 14px;
-  color: #6b7280; /* gray-500 */
+  color: #6b7280;
 }
 
-/* Details */
-.faculty-details {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #4b5563; /* gray-600 */
+/* ================= INFO ================= */
+.sca-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0;
 }
 
-.faculty-details p {
-  margin: 4px 0;
+.sca-label {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.sca-value {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ================= CABIN ================= */
+.sca-cabin {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================= CONTACT ================= */
+.sca-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.sca-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ================= ICON ================= */
+.sca-icon {
+  width: 16px;
+  height: 16px;
+  stroke: #6b7280;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .sca-faculty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .sca-faculty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sca-filter-bar {
+    width: 100%;
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,308 @@
+/* ================== APP CONTAINER ================== */
+.sca-app {
+  width: 85%;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ================== HERO ================== */
+.sca-hero {
+  background: linear-gradient(135deg, #eef4ff, #f5f7fb);
+  padding: 28px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sca-hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.sca-hero p {
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ================== DASHBOARD ================== */
+.sca-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.sca-dashboard-card {
+  padding: 20px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.sca-dashboard-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.sca-dashboard-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 5px;
+  color: #111827;
+}
+
+.sca-dashboard-card p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* ================== CARD COLORS ================== */
+.sca-card-blue {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.sca-card-green {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+}
+
+.sca-card-yellow {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+.sca-card-pink {
+  background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+}
+
+/* ================== ICON ================== */
+.sca-icon-wrapper {
+  background: white;
+  padding: 8px;
+  border-radius: 10px;
+  width: fit-content;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.sca-icon-wrapper img {
+  width: 36px;
+  height: 36px;
+}
+
+/* ================== GENERIC CARD ================== */
+.sca-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* ================== HEADER ================== */
+.sca-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================== LINK ================== */
+.sca-link {
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ================== ANNOUNCEMENTS ================== */
+.sca-announcement-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.sca-announcement-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background:  linear-gradient(135deg, #e0edff, #c7dcff);
+  transition: all 0.25s ease;
+}
+
+/* 🔥 HOVER ONLY HERE */
+.sca-announcement-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.sca-announcement-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sca-announcement-item p {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.date {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* ================== BOTTOM GRID ================== */
+.sca-bottom-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* ================== TABLE (COMPLAINTS) ================== */
+.sca-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.sca-table th {
+  text-align: left;
+  font-size: 12px;
+  color: #6b7280;
+  padding: 8px;
+}
+
+.sca-table td {
+  padding: 10px 8px;
+  font-size: 13px;
+}
+
+/* ❌ NO HOVER ON ROWS */
+
+/* ================== STATUS ================== */
+.sca-status {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.sca-status.pending {
+  background: #f59e0b;
+}
+
+.sca-status.inprogress {
+  background: #3b82f6;
+}
+
+.sca-status.resolved {
+  background: #22c55e;
+}
+
+/* ================== UPVOTE BUTTON ================== */
+.sca-upvote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 6px 12px;
+  border-radius: 20px;
+
+  background: #f1f5f9;
+  color: #334155;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.sca-upvote-btn:hover {
+  background: #e2e8f0;
+}
+
+/* ACTIVE STATE */
+.sca-upvote-btn.active {
+  background: #dbeafe;
+  color: #2563eb;
+  border-color: #93c5fd;
+}
+
+/* ================== POLL ================== */
+.sca-poll-item {
+  margin-top: 12px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.sca-poll-item:hover {
+  background: #f1f5f9;
+}
+
+.sca-poll-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sca-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  margin: 6px 0;
+}
+
+.sca-bar div {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+/* ================== FOOT TEXT ================== */
+.no-more {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 10px;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 1024px) {
+  .sca-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sca-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sca-announcement-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .sca-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

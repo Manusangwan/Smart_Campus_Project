@@ -138,3 +138,8 @@
 .cancel-btn:hover {
   background: #d1d5db;
 }
+.no-match {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 10px;
+}

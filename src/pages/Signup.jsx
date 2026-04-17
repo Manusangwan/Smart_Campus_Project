@@ -10,7 +10,7 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rollNo, setRollNo] = useState("");
+  const [rollno, setRollNo] = useState("");
   const [course, setCourse] = useState("");
   const [department, setDepartment] = useState("");
   const [year, setYear] = useState("");
@@ -24,7 +24,7 @@ const Signup = () => {
       course,
       year,
       department,
-      rollNo,
+      rollno,
       email,
       password,
     });

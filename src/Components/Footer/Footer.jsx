@@ -15,7 +15,7 @@ export default function Footer() {
                 </div>
 
                 <div className="footer-links">
-                    <h3>Quick Links</h3>
+                    <h3>Features</h3>
                    <a href="#">Home</a>
                    <a href="#">Announcements</a>
                    <a href="#">Complaints</a>

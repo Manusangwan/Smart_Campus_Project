@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './App.css'
 import Announce from './Components/Announcements/Announce.jsx'
 import Complaint from './Components/Complaints/Complaint.jsx'
@@ -9,12 +9,22 @@ import Footer from './Components/Footer/Footer.jsx'
 import Home from './Components/Home/Home.jsx'
 import { Route,Routes } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
+import Signup from './pages/Signup.jsx'
+import Login from './pages/Login.jsx'
+import { AuthContext } from './context/AuthContext.jsx'
 function App() {
-  let user= true
+  const {user,loading}= useContext(AuthContext)
+  if(loading){
+    return(
+      <h2>Loading....</h2>
+    )
+  }
   return (
     <>
      <Header/>
-     <Routes>
+     <Routes> 
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<Signup/>}/>
       <Route path="/" element={user? <Navigate to="/home"/>: <Landing/>}/>
       <Route path="/home" element={user? <Home/>:<Landing/>}/>
       <Route path="/complaints" element={<Complaint/>}/>

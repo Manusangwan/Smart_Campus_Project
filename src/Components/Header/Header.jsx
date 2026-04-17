@@ -1,32 +1,35 @@
 import { useContext, useState } from "react";
 // import { UserContext } from "./Context";
 import './Header.css'
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 const Header = () => {
-//   const { user } = useContext(UserContext);
-let user =  true;
+  const { user,logout} = useContext(AuthContext);
 const [working,setworking]= useState("Home");
   const [open, setOpen] = useState(false);
+  const navigate= useNavigate()
+  
+  async function handlelogout(){
+    await logout()
+    navigate("/")
+    setOpen(false)
+  }
   return (
     <header className="header">
 
-      {/* LEFT SIDE (FIXED) */}
       <div className="logo-section">
         <img src="/logocap.png" alt="logo" />
         <h2>Smart Campus Assistant</h2>
       </div>
 
-      {/* RIGHT SIDE (DYNAMIC) */}
       <div className="nav-section">
 
         {!user ? (
           <>
-            <button>Login</button>
-            <button>Sign Up</button>
+            <Link to="/login"><button>Login</button></Link>
+            <Link to="/signup"><button>Sign Up</button></Link>
           </>
         ) : (
-          // 🔹 LOGGED IN
           <>
             <Link className={working==="Home"?"currentactive": "nonactive"} to="/home" onClick={()=>setworking("Home")}>Home</Link>
             <Link className={working==="Announcements"?"currentactive": "nonactive"} to="/announcements" onClick={()=>setworking("Announcements")}>Announcements</Link>
@@ -39,13 +42,13 @@ const [working,setworking]= useState("Home");
                 className="profile-info" 
                 onClick={() => setOpen(!open)}
               >
-                👤 <span>Guest</span>
+                👤 <span>{user?user.name : "User"}</span>
               </div>
 
               {/* Dropdown */}
               {open && (
                 <div className="dropdown">
-                  <button>Logout</button>
+                  <button onClick={handlelogout}>Logout</button>
                 </div>
               )}
 

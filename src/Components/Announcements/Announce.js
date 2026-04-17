@@ -5,7 +5,7 @@ const announcements = [
         description: "CSE-C class shifted to E-506 from 10:00 to 10:30",
         category: "Urgent",
         priority: "Urgent",
-        audience: "CSE",
+        audience: "MBA", 
         createdAt: "2026-03-21T10:00:00",
         deadline: null,
         eventDate: null

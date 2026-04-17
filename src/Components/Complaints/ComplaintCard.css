@@ -100,3 +100,7 @@
   background: #e2e8f0;
   transform: translateY(-1px);
 }
+.mybt.active {
+  background: #dbeafe;
+  color: #2563eb;
+}

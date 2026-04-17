@@ -51,7 +51,12 @@ export default function ComplaintCard({ comp, upvotehandler }) {
                 </div>
                 <div>
                     <p>
-                        <button className="mybt" onClick={() => { upvotehandler(comp.id) }}> ▲ {comp.upvotes} upvotes</button>
+                        <button
+  className={`mybt ${comp.userUpvoted ? "active" : ""}`}
+  onClick={() => upvotehandler(comp.id)}
+>
+  ▲ {comp.upvotes} upvotes
+</button>
                         <span id="graytext">    | Posted {timeago()}</span>
                     </p>
                 </div>

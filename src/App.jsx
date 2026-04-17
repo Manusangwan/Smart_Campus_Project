@@ -1,3 +1,4 @@
+
 import { useContext, useState } from 'react'
 import './App.css'
 import Announce from './Components/Announcements/Announce.jsx'
@@ -12,6 +13,8 @@ import { Navigate } from 'react-router-dom'
 import Signup from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 import { AuthContext } from './context/AuthContext.jsx'
+import PollPage from "./pages/PollPage.jsx";
+
 function App() {
   const {user,loading}= useContext(AuthContext)
   if(loading){
@@ -30,11 +33,12 @@ function App() {
       <Route path="/complaints" element={<Complaint/>}/>
       <Route path="/announcements" element={<Announce/>}/>
       <Route path="/faculty" element={<Faculty/>}/>
+      <Route path="/poll" element={<PollPage />} />
      </Routes>
      <Footer/>
     </>
-
   )
 }
 
-export default App
+
+

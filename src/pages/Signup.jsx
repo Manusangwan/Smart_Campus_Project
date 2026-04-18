@@ -48,10 +48,12 @@ const Signup = () => {
           className="auth-input"
           type="text"
           placeholder="Full Name"
+          value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <select
           className="auth-input"
+          value={course}
           onChange={(e) => setCourse(e.target.value)}
         >
           <option value="">Select Course</option>
@@ -64,6 +66,7 @@ const Signup = () => {
         {(course === "BTech" || course === "MTech") && (
           <select
             className="auth-input"
+            value={department}
             onChange={(e) => setDepartment(e.target.value)}
           >
             <option value="">Select Branch</option>
@@ -77,6 +80,7 @@ const Signup = () => {
 
          <select
           className="auth-input"
+          value={year}
           onChange={(e) => setYear(e.target.value)}
         >
           <option value="">Select Year</option>
@@ -90,6 +94,7 @@ const Signup = () => {
           className="auth-input"
           type="text"
           placeholder="University Roll No"
+          value={rollno}
           onChange={(e) => setRollNo(e.target.value)}
         />
 
@@ -97,6 +102,7 @@ const Signup = () => {
           className="auth-input"
           type="email"
           placeholder="Email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
@@ -104,6 +110,7 @@ const Signup = () => {
           className="auth-input"
           type="password"
           placeholder="Password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
        

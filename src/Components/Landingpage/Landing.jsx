@@ -2,7 +2,10 @@ import React from "react";
 import './Landing.css'
 import Showcard from "./Showcard";
 import Stepcard from "./Stepcard";
+// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Landing(){
+    const navigate= useNavigate();
     return(
         <div>
             <div id="hero">
@@ -10,7 +13,7 @@ export default function Landing(){
                     <p id="head">Smart Campus Assistant</p>
                     <p id="para">Manage complaints, announcements, and faculty details in one place.</p>
                     <div>
-                        <button className="bts sign next">Get Started</button>
+                        <button className="bts sign next" onClick={()=> navigate("/login")}>Get Started</button>
                     </div>
                 </div>
             </div>
@@ -34,7 +37,7 @@ export default function Landing(){
             <div id="last">
                 <div id="campus">
                     <p id="text">Ready to simplify your campus life?</p>
-                    <button className="bts sign nexting">Sign Up Now</button>
+                    <button className="bts sign nexting" onClick={()=>navigate("/signup")}>Sign Up Now</button>
                 </div>
             </div>
         </div>

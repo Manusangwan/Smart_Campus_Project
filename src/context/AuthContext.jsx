@@ -83,6 +83,8 @@ export const AuthProvider = ({ children }) => {
         signup,
         logout,
         loading,
+        working,
+        setworking
       }}
     >
       {children}

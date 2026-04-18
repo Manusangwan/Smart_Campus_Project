@@ -1,15 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import authservice from "../appwrite/auth";
 import dataservice from "../appwrite/database";
-import { useNavigate } from "react-router-dom";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-
   const [user, setUser] = useState(null);
-
   const [loading, setLoading] = useState(true);
 
+  // 🔄 Fetch current user on load
   const fetchUser = async () => {
     try {
       const currentUser = await authservice.currentuser();
@@ -25,6 +24,7 @@ export const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
+  // 🔐 LOGIN
   const login = async (email, password) => {
     try {
       await authservice.login({ email, password });
@@ -38,9 +38,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // 📝 SIGNUP
   const signup = async (data) => {
     try {
-      const {name, course="Btech", department="NA",year="1",rollno="23456", email,password } = data;
+      const {
+        name,
+        course = "Btech",
+        department = "NA",
+        year = "1",
+        rollno = "23456",
+        email,
+        password,
+      } = data;
+
       const userAccount = await authservice.createaccount({
         email,
         password,
@@ -48,15 +58,17 @@ export const AuthProvider = ({ children }) => {
       });
 
       await authservice.login({ email, password });
+
       await dataservice.createprofile({
-      userId: userAccount.$id,
-      name,
-      email,
-      course,
-      department,
-      year,
-      rollno,
-    });
+        userId: userAccount.$id,
+        name,
+        email,
+        course,
+        department,
+        year,
+        rollno,
+      });
+
       const currentUser = await authservice.currentuser();
       setUser(currentUser);
 
@@ -66,6 +78,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // 🚪 LOGOUT
   const logout = async () => {
     try {
       await authservice.logout();
@@ -83,8 +96,6 @@ export const AuthProvider = ({ children }) => {
         signup,
         logout,
         loading,
-        working,
-        setworking
       }}
     >
       {children}

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "../../styles/global.css";
 
-export default function Poll() {
+export default function Poll({ showTitle = true }) {
+
+  const question = "Should college extend library hours?"; // ✅ ADD QUESTION
 
   const [options, setOptions] = useState([
     { key: "yes", label: "Yes", votes: 62 },
@@ -12,17 +14,13 @@ export default function Poll() {
   const [selected, setSelected] = useState(null);
 
   const handleVote = (key) => {
-
-    // ❌ If same option clicked → do nothing
     if (selected === key) return;
 
     let updated = options.map((opt) => {
-      // remove previous vote
       if (opt.key === selected) {
         return { ...opt, votes: opt.votes - 1 };
       }
 
-      // add vote to new
       if (opt.key === key) {
         return { ...opt, votes: opt.votes + 1 };
       }
@@ -39,7 +37,11 @@ export default function Poll() {
   return (
     <div className="sca-card">
 
-      <h3>Poll of the Week</h3>
+      {/* ✅ TITLE */}
+      {showTitle && <h3>📊 Poll of the Week</h3>}
+
+      {/* ✅ QUESTION (THIS WAS MISSING) */}
+      <p className="sca-poll-question">{question}</p>
 
       {options.map((opt) => {
         const percent = Math.round((opt.votes / totalVotes) * 100);
@@ -50,7 +52,6 @@ export default function Poll() {
             className={`sca-poll-item ${selected === opt.key ? "active" : ""}`}
             onClick={() => handleVote(opt.key)}
           >
-
             <div className="sca-poll-top">
               <span>{opt.label}</span>
               {selected === opt.key && <span>✔</span>}
@@ -61,11 +62,9 @@ export default function Poll() {
             </div>
 
             <span>{percent}%</span>
-
           </div>
         );
       })}
-
     </div>
   );
 }

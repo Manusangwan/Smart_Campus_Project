@@ -19,6 +19,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+
 .form-card h2 {
   margin-bottom: 20px;
   font-size: 24px;
@@ -142,4 +143,18 @@
   font-size: 13px;
   color: #9ca3af;
   margin-top: 10px;
+}
+.ai-btn {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ai-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

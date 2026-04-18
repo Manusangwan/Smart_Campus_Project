@@ -40,7 +40,7 @@ export default function DashboardCards() {
       action: "Raise Now",
       icon: complaintIcon,
       bg: "sca-card-pink",
-      route: "/complaints?new=true",   // 🔥 DIRECT OPEN FORM
+      route: "/complaints?new=true",
     },
   ];
 
@@ -50,7 +50,6 @@ export default function DashboardCards() {
         <div
           key={i}
           className={`sca-dashboard-card ${card.bg}`}
-          onClick={() => navigate(card.route)}
         >
           <div className="sca-icon-wrapper">
             <img src={card.icon} alt="" />
@@ -59,7 +58,16 @@ export default function DashboardCards() {
           <h3>{card.title}</h3>
           <p>{card.sub}</p>
 
-          <span className="sca-link">{card.action} →</span>
+          {/* ✅ ONLY THIS PART NAVIGATES */}
+          <span
+            className="sca-link"
+            onClick={(e) => {
+              e.stopPropagation(); // 🔥 prevents parent click
+              navigate(card.route);
+            }}
+          >
+            {card.action} →
+          </span>
         </div>
       ))}
     </div>

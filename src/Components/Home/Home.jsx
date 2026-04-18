@@ -15,7 +15,7 @@ export default function Home() {
   const recentAnnouncements = announcements.slice(0, 3);
   const recentComplaints = complaints.slice(0, 3);
 
-  // 🔥 TOGGLE UPVOTE (one user ⇄ one vote)
+  // 🔥 TOGGLE UPVOTE
   function upvotehandler(id) {
     setComplaints((prev) =>
       prev.map((c) => {
@@ -34,15 +34,22 @@ export default function Home() {
   return (
     <div className="sca-app">
       <Hero />
+
+      {/* 🔥 IMPORTANT: This component has the real bug */}
       <DashboardCards />
 
       {/* ===== ANNOUNCEMENTS ===== */}
       <div className="sca-card">
         <div className="sca-header">
           <h3>📢 Recent Announcements</h3>
+
+          {/* ✅ FIX: stop propagation */}
           <span
             className="sca-link"
-            onClick={() => navigate("/announcements")}
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate("/announcements");
+            }}
           >
             View All →
           </span>
@@ -64,13 +71,17 @@ export default function Home() {
 
       {/* ===== COMPLAINTS + POLL ===== */}
       <div className="sca-bottom-grid">
-        {/* ===== COMPLAINTS (TABLE) ===== */}
         <div className="sca-card">
           <div className="sca-header">
             <h3>📋 Recent Complaints</h3>
+
+            {/* ✅ FIX: stop propagation */}
             <span
               className="sca-link"
-              onClick={() => navigate("/complaints")}
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate("/complaints");
+              }}
             >
               View All →
             </span>
@@ -104,12 +115,15 @@ export default function Home() {
                   </td>
 
                   <td>
-                    {/* 🔥 SAME STYLE AS HER (▲) + TOGGLE */}
+                    {/* ✅ FIX: prevent row click issues */}
                     <button
                       className={`sca-upvote-btn ${
                         c.userUpvoted ? "active" : ""
                       }`}
-                      onClick={() => upvotehandler(c.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        upvotehandler(c.id);
+                      }}
                     >
                       ▲ {c.upvotes}
                     </button>
@@ -124,7 +138,6 @@ export default function Home() {
           <p className="no-more">No more complaints to show</p>
         </div>
 
-        {/* ===== POLL ===== */}
         <Poll />
       </div>
     </div>

@@ -1,14 +1,29 @@
+// ==============================
+// src/conf/conf.js
+// ==============================
+
 const conf = {
-  appwriteurl: import.meta.env.VITE_APPWRITE_URL,
-  appwriteprojectid: import.meta.env.VITE_APPWRITE_PROJECT_ID,
-  appwritedatabaseid: import.meta.env.VITE_APPWRITE_DATABASE_ID,
-  appwriteprofilecollectionid:
-    import.meta.env.VITE_APPWRITE_PROFILE_COLLECTION_ID,
+    // Appwrite Config
+    appwriteUrl: import.meta.env.VITE_APPWRITE_URL || "",
+    appwriteProjectId: import.meta.env.VITE_APPWRITE_PROJECT_ID || "",
+    appwriteDatabaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID || "",
+    appwriteProfileCollectionId:
+        import.meta.env.VITE_APPWRITE_PROFILE_COLLECTION_ID || "",
 
-
-  openrouterapikey: import.meta.env.VITE_OPENROUTER_API_KEY,
+    // Optional APIs
+    openRouterApiKey: import.meta.env.VITE_OPENROUTER_API_KEY || "",
 };
 
+// Debugging
+console.log("Loaded Config:", conf);
 
+// Validation
+if (!conf.appwriteUrl) {
+    throw new Error("VITE_APPWRITE_URL is missing in .env");
+}
+
+if (!conf.appwriteProjectId) {
+    throw new Error("VITE_APPWRITE_PROJECT_ID is missing in .env");
+}
 
 export default conf;

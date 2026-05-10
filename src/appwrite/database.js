@@ -1,30 +1,24 @@
+// ==============================
+// src/appwrite/database.js
+// ==============================
+
 import { Client, ID, Databases, Permission, Role } from "appwrite";
 import conf from "../conf/conf";
 
 export class DataService {
-  client = new Client();
-  databases;
+    client = new Client();
+    databases;
 
-  constructor() {
-    this.client
-      .setEndpoint(conf.appwriteurl)
-      .setProject(conf.appwriteprojectid);
+    constructor() {
+        this.client
+            .setEndpoint(conf.appwriteUrl)
+            .setProject(conf.appwriteProjectId);
 
-    this.databases = new Databases(this.client);
-  }
+        this.databases = new Databases(this.client);
+    }
 
-  async createprofile({
-    userId,
-    name,
-    email,
-    course,
-    department,
-    year,
-    rollno,
-  }) {
-    try {
-      // 🔥 DEBUG: see what is being sent
-      console.log("Creating profile with data:", {
+    // Create user profile
+    async createProfile({
         userId,
         name,
         email,
@@ -32,38 +26,86 @@ export class DataService {
         department,
         year,
         rollno,
-      });
+    }) {
+        try {
+            console.log("Creating profile:", {
+                userId,
+                name,
+                email,
+                course,
+                department,
+                year,
+                rollno,
+            });
 
-      const response = await this.databases.createDocument(
-        conf.appwritedatabaseid,
-        conf.appwriteprofilecollectionid,
-        ID.unique(),
-        {
-          userId,
-          name,
-          email,
-          course,
-          department,
-          year: Number(year),   // ✅ FIXED datatype
-          rollno: String(rollno), // ✅ safer (rollno often string)
-        },
-        [
-          // 🔐 Document-level permissions (BEST PRACTICE)
-          Permission.read(Role.user(userId)),
-          Permission.update(Role.user(userId)),
-          Permission.delete(Role.user(userId)),
-        ]
-      );
-
-      console.log("Profile created successfully:", response);
-      return response;
-
-    } catch (error) {
-      console.error("❌ Database createprofile error:", error.message || error);
-      throw error;
+            return await this.databases.createDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteProfileCollectionId,
+                ID.unique(),
+                {
+                    userId,
+                    name,
+                    email,
+                    course,
+                    department,
+                    year: Number(year),
+                    rollno: String(rollno),
+                },
+                [
+                    Permission.read(Role.user(userId)),
+                    Permission.update(Role.user(userId)),
+                    Permission.delete(Role.user(userId)),
+                ]
+            );
+        } catch (error) {
+            console.error("CreateProfile Error:", error);
+            throw error;
+        }
     }
-  }
+
+    // Get profile
+    async getProfile(documentId) {
+        try {
+            return await this.databases.getDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteProfileCollectionId,
+                documentId
+            );
+        } catch (error) {
+            console.error("GetProfile Error:", error);
+            return null;
+        }
+    }
+
+    // Update profile
+    async updateProfile(documentId, data) {
+        try {
+            return await this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteProfileCollectionId,
+                documentId,
+                data
+            );
+        } catch (error) {
+            console.error("UpdateProfile Error:", error);
+            throw error;
+        }
+    }
+
+    // Delete profile
+    async deleteProfile(documentId) {
+        try {
+            return await this.databases.deleteDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteProfileCollectionId,
+                documentId
+            );
+        } catch (error) {
+            console.error("DeleteProfile Error:", error);
+            throw error;
+        }
+    }
 }
 
-const dataservice = new DataService();
-export default dataservice;
+const dataService = new DataService();
+export default dataService;

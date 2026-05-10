@@ -14,8 +14,7 @@ const conf = {
     openRouterApiKey: import.meta.env.VITE_OPENROUTER_API_KEY || "",
 };
 
-// Debugging
-console.log("Loaded Config:", conf);
+
 
 // Validation
 if (!conf.appwriteUrl) {

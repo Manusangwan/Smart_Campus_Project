@@ -1,29 +1,38 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "./AuthLayout";
 import "./Auth.css";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate= useNavigate()
-  const {login}= useContext(AuthContext)
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleLogin = async(e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // console.log(email, password);
+
+    if (submitting) return;
+
     if (!email || !password) {
-    alert("Please fill all fields");
-    return;
+      alert("Please fill all fields");
+      return;
     }
-    try{
-      await login(email,password);
-      navigate("/home");
-    }
-    catch(error){
-      alert(error.message)
+
+    try {
+      setSubmitting(true);
+
+      await login(email, password);
+
+      alert("Login successful!");
+      navigate("/");
+    } catch (error) {
+      alert(error.message || "Login failed");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -48,7 +57,13 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit" className="auth-btn">Login</button>
+        <button
+          type="submit"
+          className="auth-btn"
+          disabled={submitting}
+        >
+          {submitting ? "Logging in..." : "Login"}
+        </button>
       </form>
 
       <div className="auth-link">

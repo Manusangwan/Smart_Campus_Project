@@ -28,10 +28,12 @@ const Signup = () => {
       return;
     }
 
-    if (
-      (course === "BTech" || course === "MTech") &&
-      !department
-    ) {
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters.");
+      return;
+    }
+
+    if ((course === "BTech" || course === "MTech") && !department) {
       alert("Please select your department.");
       return;
     }
@@ -49,11 +51,10 @@ const Signup = () => {
         password,
       });
 
-      navigate("/home");
+      alert("Signup successful!");
+      navigate("/");
     } catch (error) {
-      if (
-        error.message?.toLowerCase().includes("already exists")
-      ) {
+      if (error.message?.toLowerCase().includes("already exists")) {
         alert("Account already exists. Please login.");
         navigate("/login");
       } else {

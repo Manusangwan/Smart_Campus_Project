@@ -8,11 +8,13 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Fetch current logged-in user
   const fetchUser = async () => {
     try {
       const currentUser = await authservice.currentUser();
       setUser(currentUser);
-    } catch {
+    } catch (error) {
+      console.error("FetchUser Error:", error);
       setUser(null);
     } finally {
       setLoading(false);
@@ -23,9 +25,13 @@ export const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
+  // Login
   const login = async (email, password) => {
     try {
-      await authservice.login({ email, password });
+      await authservice.login({
+        email: email.trim(),
+        password,
+      });
 
       const currentUser = await authservice.currentUser();
 
@@ -37,10 +43,12 @@ export const AuthProvider = ({ children }) => {
 
       return currentUser;
     } catch (error) {
+      console.error("Login Context Error:", error);
       throw error;
     }
   };
 
+  // Signup
   const signup = async (data) => {
     try {
       const {
@@ -57,9 +65,9 @@ export const AuthProvider = ({ children }) => {
 
       try {
         userAccount = await authservice.createAccount({
-          email,
+          email: email.trim(),
           password,
-          name,
+          name: name.trim(),
         });
       } catch (error) {
         if (
@@ -73,52 +81,64 @@ export const AuthProvider = ({ children }) => {
       }
 
       if (!userAccount) {
-        throw new Error("Signup failed. Please try again.");
+        throw new Error("Signup failed.");
       }
 
-      try {
-        await authservice.login({ email, password });
-      } catch (loginError) {
-        throw new Error("Signup succeeded but login failed. Please login.");
-      }
+      // Auto login after signup
+      await authservice.login({
+        email: email.trim(),
+        password,
+      });
 
-      const currentUser = await authservice.currentUser();
+      let currentUser = null;
+
+      // Retry fetching user session
+      for (let i = 0; i < 5; i++) {
+        currentUser = await authservice.currentUser();
+
+        if (currentUser) break;
+
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
 
       if (!currentUser) {
-        throw new Error("Unable to fetch user after signup.");
+        throw new Error("Signup succeeded but login failed.");
       }
 
+      // Create user profile
       try {
         await dataservice.createProfile({
           userId: currentUser.$id,
-          name,
-          email,
+          name: name.trim(),
+          email: email.trim(),
           course,
           department:
-            (course === "BTech" || course === "MTech")
+            course === "BTech" || course === "MTech"
               ? department
               : "NA",
           year,
-          rollno,
+          rollno: rollno.trim(),
         });
       } catch (profileError) {
-        console.error(profileError);
+        console.error("Profile Creation Error:", profileError);
       }
 
       setUser(currentUser);
 
       return currentUser;
     } catch (error) {
+      console.error("Signup Context Error:", error);
       throw error;
     }
   };
 
+  // Logout
   const logout = async () => {
     try {
       await authservice.logout();
       setUser(null);
     } catch (error) {
-      console.error(error);
+      console.error("Logout Context Error:", error);
     }
   };
 
